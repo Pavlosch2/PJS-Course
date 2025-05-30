@@ -1,0 +1,692 @@
+/* Загальні скидання */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+  margin-top: 50px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Header */
+/* Основний header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Мінімізований header */
+.header.shrink {
+  padding: 6px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Лого */
+.logo {
+  height: 44px;
+  margin-right: 12px;
+  transition: height 0.3s ease;
+}
+
+.header.shrink .logo {
+  height: 32px;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.logo__text {
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+  transition: font-size 0.3s ease;
+}
+
+.header.shrink .logo__text {
+  font-size: 18px;
+}
+
+/* Навігація */
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #d2691e;
+}
+
+.cta-button {
+  background-color: #ffa500;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e69500;
+}
+
+/* Бургер-іконка */
+.burger {
+  display: none;
+  flex-direction: column;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: 0.3s;
+  margin: 3px 0;
+}
+
+/* Анімація бургер -> Х */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 3.5px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -4px);
+}
+
+/* Блокування скролу */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Intro Section */
+.intro {
+  padding: 40px 20px;
+  background-color: #fdfae9;
+}
+
+.quote {
+  background-color: #fff4c4;
+  border-left: 5px solid orange;
+  padding: 18px;
+  margin-bottom: 25px;
+  font-style: italic;
+  border-radius: 6px;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #444;
+  font-style: normal;
+}
+
+.description {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.desc-left,
+.desc-right {
+  flex: 1;
+  padding: 20px;
+  background-color: #eaffdf;
+  border-left: 4px solid #91e65e;
+  border-radius: 6px;
+}
+
+/* Audience Section */
+.audience {
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.audience__text {
+  background-color: #555;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  max-width: 600px;
+}
+
+/* About Section */
+.about-course {
+  padding: 50px 20px;
+  background-color: white;
+}
+
+.about-course h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 28px;
+}
+
+.about-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.box {
+  padding: 24px;
+  border-radius: 12px;
+  width: 260px;
+  color: white;
+  font-size: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.green { background-color: #5ec738; }
+.gray { background-color: #7e7e7e; }
+.blue { background-color: #3f51b5; }
+.yellow { background-color: #ffc107; }
+
+/* Program & Format */
+.program-format {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background-color: #f8f8f8;
+}
+
+.program, .format {
+  width: 320px;
+  background-color: #fffbdc;
+  padding: 24px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.program h3,
+.format h3 {
+  margin-bottom: 12px;
+  background-color: #777;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.program-format ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.program-format li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+}
+
+.program-format li::before {
+  content: "➡️";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Team Section */
+.team {
+  padding: 50px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.team__members {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.member p {
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.contact-form {
+  background-color: #333;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.contact-form input {
+  padding: 12px;
+  width: 280px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 12px 24px;
+  background-color: orange;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #e69500;
+}
+
+/* Footer */
+.footer {
+  background-color: #002547;
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.footer__left, .footer__right {
+  margin: 10px;
+}
+
+.footer__right p:last-child {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.fLink {
+  text-decoration: none;
+}
+
+#go-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  /* background-color: bisque; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#go-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#go-top:active {
+  transform: scale(0.95);
+}
+
+#go-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(2, 2, 2, .7);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  display: none;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cookie-banner.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cookie-buttons button {
+  pointer-events: auto;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Прийняти — зелена */
+#accept-cookies {
+  background-color: #28a745;
+  color: white;
+}
+#accept-cookies:hover {
+  background-color: #218838;
+}
+
+/* Відхилити — прозора з контуром */
+#decline-cookies {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+#decline-cookies:hover {
+  background-color: #444;
+  border-color: #999;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #4eaaff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  pointer-events: auto;
+}
+
+/* Modal Window */
+.cookie-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,.6);
+}
+
+.cookie-modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* media reports */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    z-index: 1000;
+    padding: 60px 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .nav-wrapper.open {
+    right: 0;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .nav a,
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-button {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+    z-index: 998;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .description,
+  .about-boxes,
+  .program-format,
+  .team__members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-boxes {
+    height: 400px;
+    overflow-y: auto;
+  }
+
+  .box {
+    width: 250px;
+    height: 381px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #go-top {
+    display: none !important;
+  }
+
+  .intro,
+  .audience,
+  .contact-form {
+    padding: 24px 16px;
+  }
+
+  .quote {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .description,
+  .desc-left,
+  .desc-right,
+  .about-course h2,
+  .box,
+  .program,
+  .format,
+  .program h3,
+  .format h3,
+  .member img,
+  .member p,
+  .contact-form input,
+  .contact-form button {
+    font-size: 14px;
+  }
+
+  .desc-left,
+  .desc-right {
+    padding: 16px;
+  }
+
+  .box,
+  .program,
+  .format {
+    width: 100%;
+  }
+
+  .format {
+    margin-top: 20px;
+  }
+
+  .program h3,
+  .format h3 {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .member img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contact-form button {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .footer__left,
+  .footer__right {
+    margin: 8px 0;
+  }
+
+  .about-boxes {
+    height: 300px;
+    overflow-y: auto;
+  }
+
+  .box {
+    width: 250px;
+    height: 381px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+  }
+
+  .logo {
+    height: 36px;
+    margin-bottom: 8px;
+  }
+
+  .logo__text {
+    font-size: 18px;
+  }
+
+  .nav {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+  }
+}
